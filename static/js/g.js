@@ -69,9 +69,11 @@ function get_strategy(id){
     $("#note").val(res.data.note)
     $("#times").val(res.data.times)
     $("#max_step").val(res.data.max_step)
+    $("#idc").val(res.data.idc)
     $("#tags").val(res.data.tag.replace(/,/g,"\n"))
+
   }, "json");
-};
+}
 
 function update_strategy(id){
     var url = '/url?id='+id
@@ -86,7 +88,8 @@ function update_strategy(id){
       "note": $('#note').val(),
       "keywords": $('#keywords').val(),
       "data": $('#data').val(),
-      "ip": $('#ip').val()
+      "ip": $('#ip').val(),
+      "idc": $('#idc').val()
     }, function(json) {
       handle_json(json, function (){location.href=url})
     });
@@ -104,7 +107,8 @@ function add_strategy() {
       "note": $('#note').val(),
       "keywords": $('#keywords').val(),
       "data": $('#data').val(),
-      "ip": $('#ip').val()
+      "ip": $('#ip').val(),
+      "idc": $('#idc').val()
     }, function(json){
         handle_json(json, function(){
           location.href="/";

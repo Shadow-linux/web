@@ -56,6 +56,7 @@ func AddStrategyPost(w http.ResponseWriter, r *http.Request) {
 		s.Data = param.String(r, "data", "")
 		s.Tag = tagStr
 		s.IP = param.String(r, "ip", "")
+		s.Idc = param.String(r,"idc","")
 
 		_, err = s.Add()
 		if err != nil {
@@ -125,6 +126,7 @@ func UpdateStrategy(w http.ResponseWriter, r *http.Request) {
 	s.Keywords = param.String(r, "keywords", "")
 	s.Data = param.String(r, "data", "")
 	s.IP = param.String(r, "ip", "")
+	s.Idc = param.String(r,"idc","")
 	s.Tag = tagStr
 
 	err = s.Update()

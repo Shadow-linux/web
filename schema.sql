@@ -16,6 +16,7 @@ CREATE TABLE `strategy` (
   `max_step`    int(4)          NOT NULL DEFAULT 3,
   `times`       int(4)          NOT NULL DEFAULT 3,
   `teams`       varchar(32)     NOT NULL DEFAULT '',
+  `idc`         varchar(50)     DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 #ALTER TABLE strategy ADD ip varchar(255);

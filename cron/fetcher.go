@@ -38,11 +38,15 @@ func getDetectedItem() error {
 			for _, ip := range ips {
 				var tmp g.IpIdc
 				tmp.Ip = ip
-				tmp.Idc = "default"
+				if s.Idc != ""{
+					tmp.Idc = s.Idc
+				} else {
+					tmp.Idc = "default"
+				}
 				ipIdcArr = append(ipIdcArr, tmp)
 			}
 		} else {
-			ipIdcArr = getIpAndIdc(domain)
+			ipIdcArr = getIpAndIdc(domain,s.Idc)
 		}
 
 		for _, tmp := range ipIdcArr {
@@ -68,7 +72,7 @@ func getDetectedItem() error {
 	return nil
 }
 
-func getIpAndIdc(domain string) []g.IpIdc {
+func getIpAndIdc(domain,idc string) []g.IpIdc {
 
 	//公司内部提供接口，拿到域名解析的ip和机房列表
 	if g.Config.InternalDns.Enable {
@@ -81,14 +85,22 @@ func getIpAndIdc(domain string) []g.IpIdc {
 	if utils.IsIP(domain) {
 		var tmp g.IpIdc
 		tmp.Ip = domain
-		tmp.Idc = "default"
+		if idc != ""{
+			tmp.Idc = idc
+		} else {
+			tmp.Idc = "default"
+		}
 		ipIdcArr = append(ipIdcArr, tmp)
 	} else {
 		ips, _ := utils.LookupIP(domain, 5000)
 		for _, ip := range ips {
 			var tmp g.IpIdc
 			tmp.Ip = ip
-			tmp.Idc = "default"
+			if idc != ""{
+				tmp.Idc = idc
+			} else {
+				tmp.Idc = "default"
+			}
 			ipIdcArr = append(ipIdcArr, tmp)
 		}
 	}

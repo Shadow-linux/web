@@ -69,6 +69,10 @@
             <input class='form-control' type='text' placeholder='监控要登录状态访问的url时填写' id='data'></input>
           </div>
 
+            <div class='form-group'>
+                <label for='TargetNeedToMonitor'>IDC</label>
+                <input class='form-control' type='text' placeholder='idc机房，如 internal.ayg.gz (即使用哪个机房的agent进行url访问,不清楚询问管理员)' id='idc'></input>
+            </div>
           <div class='form-group'>
           <label for='TargetNeedToMonitor'>IP</label>
             <input class='form-control' type='text' placeholder='指定域名对应的ip,多个用逗号隔开' id='ip'></input>
@@ -113,7 +117,7 @@ $(function() {
             }
         },
         formatResult: function(obj) {return obj.name},
-        formatSelection: function(obj) {return obj.name},
+        formatSelection: function(obj) {return obj.name}
     });
 
 });

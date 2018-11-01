@@ -18,6 +18,7 @@ type Strategy struct {
 	MaxStep    int    `json:"max_step"`
 	Times      int    `json:"times"`
 	Teams      string `json:"teams"`
+	Idc        string `json:"idc"`
 }
 
 func GetAllStrategyCount(mine int, query, username string) (int64, error) {
